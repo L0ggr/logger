@@ -2,9 +2,8 @@
 
 ## Development environment
 
-Use PostgreSQL: uncomment/comment `orm/index.ts` `l.12`  
-OR  
-Use SQLITE: uncomment/comment `orm/index.ts` `l.10`
+Have local MongoDB instance.
+Default routes and credentials.
 
 Terminal:  
 > `npm install`  
@@ -16,8 +15,7 @@ VSCode(debug):
 ## Architecture
 
 Refer to:  
-[Apollo Getting Started](https://www.apollographql.com/docs/apollo-server/getting-started/)  
-[Sequelize Getting Started](https://sequelize.org/master/manual/model-basics.html)
+[Apollo Getting Started](https://www.apollographql.com/docs/apollo-server/getting-started/)
 
 __`import/require`__ basics:  
 `./folder/index.ts`
