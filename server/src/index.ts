@@ -2,7 +2,6 @@ require("dotenv").config();
 import { ApolloServer } from "apollo-server";
 import { DatabaseInit } from "orm";
 import { gql } from "apollo-server";
-import { GetUser, GetUsers, PutUser, DeleteUser } from "@services";
 
 export const typeDefs = gql`
   type User {
@@ -36,12 +35,12 @@ export const typeDefs = gql`
 
 export const resolvers = {
   Query: {
-    user: GetUser,
-    users: GetUsers,
+    // user: GetUser,
+    // users: GetUsers,
   },
   Mutation: {
-    putUser: PutUser,
-    deleteUser: DeleteUser,
+    // putUser: PutUser,
+    // deleteUser: DeleteUser,
   },
 };
 
