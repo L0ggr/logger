@@ -11,16 +11,15 @@ Front:
 - React
 - Typescript
 - Apollo React Client
-- Redux (state management)
 - Axios
-- Styled Components/CSS modules
+- Styled Components
 - UI Framework: Tailwind CSS/Chakra UI/Material UI/Radix UI
 
 Back:
 - Nodejs + GraphQL
-- Apollo Server / Apollo-Express
+- Apollo Server
 - Typescript
-- ORM: sequelize/typeorm/mongo
+- ORM: mongo
 
 CI/CD/Quality:
 - Versioning:
