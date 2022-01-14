@@ -1,89 +1,111 @@
-import { UserAttributes, UserCreationAttributes } from "@types";
+import { User } from "@types";
 import { UserModel } from "@orm";
 
 export async function GetUser(
   parent: any,
-  args: any,
+  args: { id: string },
   context: any,
   info: any
-): Promise<UserAttributes | null> {
+): Promise<User | null> {
   try {
     const { id } = args;
 
-    if (id) throw new Error();
-    const findUser = await UserModel.findByPk(id);
+    if (!id) throw new Error();
+    const findUser = await UserModel.findById(id);
 
     if (!findUser) throw new Error();
 
-    return findUser.get();
+    return findUser;
   } catch (err) {
     console.error(err);
   }
   return null;
 }
 
-export async function GetUsers(
+// export async function GetUsers(
+//   parent: any,
+//   args: any,
+//   context: any,
+//   info: any
+// ): Promise<UserAttributes[] | null> {
+//   try {
+//     const { ids } = args;
+
+//     if (ids?.length <= 0) throw new Error();
+
+//     const findUsers = await UserModel.findAll();
+
+//     const data = findUsers.map((user) => user.get());
+
+//     if (!data.length) throw new Error();
+
+//     return data;
+//   } catch (err) {
+//     console.error(err);
+//   }
+//   return null;
+// }
+
+export async function UpdateUser(
   parent: any,
-  args: any,
+  args: { id: string; user: User },
   context: any,
   info: any
-): Promise<UserAttributes[] | null> {
+): Promise<User | null> {
   try {
-    const { ids } = args;
-
-    if (ids?.length <= 0) throw new Error();
-
-    const findUsers = await UserModel.findAll();
-
-    const data = findUsers.map((user) => user.get());
-
-    if (!data.length) throw new Error();
-
-    return data;
-  } catch (err) {
-    console.error(err);
-  }
-  return null;
-}
-
-export async function PutUser(
-  parent: any,
-  args: any,
-  context: any,
-  info: any
-): Promise<UserAttributes | null> {
-  try {
-    const { user } = args;
-    // Encypt password if password is changed
+    const { id, user } = args;
+    // TODO(Ecy): Encypt password
     // user.password = Hash(user.password);
 
-    const findUser = await UserModel.upsert(user);
+    user.updatedAt = new Date();
+    const updateUser = await UserModel.findByIdAndUpdate(id, user);
 
-    // NOTE: See sequelize upsert function returns
-    if (!findUser.length) throw new Error();
-    return findUser[0].get();
+    if (!updateUser) throw new Error();
+
+    return updateUser;
   } catch (err) {
     console.error(err);
   }
   return null;
 }
 
-export async function DeleteUser(
+export async function AddUser(
   parent: any,
-  args: any,
+  args: { user: User },
   context: any,
   info: any
-): Promise<UserCreationAttributes | null> {
+): Promise<User | null> {
+  try {
+    const { user } = args;
+    // TODO(Ecy): Encypt password
+    // user.password = Hash(user.password);
+
+    user.createdAt = new Date();
+    user.updatedAt = new Date();
+    const findUser = new UserModel(user);
+
+    await findUser.save();
+    return findUser;
+  } catch (err) {
+    console.error(err);
+  }
+  return null;
+}
+
+// Note(Ecy): Return type is janky :) someone fix please
+export async function DeleteUser(
+  parent: any,
+  args: { id: string },
+  context: any,
+  info: any
+): Promise<{ id: string } | null> {
   try {
     const { id } = args;
-    const findUser = await UserModel.findByPk(id);
+    const result = await UserModel.findByIdAndDelete(id);
 
-    if (!findUser) throw new Error();
+    if (!result?.$isDeleted) throw new Error();
 
-    await findUser.destroy();
-    return {
-      id,
-    };
+    return { id };
   } catch (err) {
     console.error(err);
   }

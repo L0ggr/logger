@@ -1,14 +1,14 @@
 import { DateOnlyDataType, Optional } from "sequelize";
 
-export interface UserAttributes {
-  firstName: String;
-  lastName: String;
-  email: String;
-  phone: String;
-  password: String;
-  createAt: Date;
+export interface User {
+  name: string;
+  email: string;
+  password: string;
+  userSettings: UserSettings;
+  createdAt: Date;
   updatedAt: Date;
 }
 
-export interface UserCreationAttributes
-  extends Optional<UserAttributes, "id", "password"> {}
+export interface UserSettings {
+  exampleNotification: boolean;
+}
