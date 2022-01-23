@@ -1,5 +1,15 @@
 # Logger Server
 
+## ENV
+
+NOTE: the .env should be in the `server` folder
+
+| KEY | VALUE |
+|-|-|
+| DB_MONGO_URL | Ex: mongodb://localhost:27017/ |
+| DB_MONGO_DATABASE | Ex: test |
+
+
 ## Development environment
 
 Have local MongoDB instance.

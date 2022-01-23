@@ -3,7 +3,9 @@ import { User, UserSettings } from "@types";
 
 export const DatabaseInit = async () => {
   try {
-    await connect("mongodb://localhost:27017/test");
+    await connect(
+      `${process.env.DB_MONGO_URL!}/${process.env.DB_MONGO_DATABASE}`
+    );
     console.log("Connection Mongo: OK.");
   } catch (err) {
     throw new Error("Unable to connect to the database: " + err);

@@ -5,6 +5,13 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "cwd": "${workspaceFolder}/client",
+            "command": "npm start",
+            "name": "Frontend Serve",
+            "request": "launch",
+            "type": "node-terminal"
+        },
+        {
             "cwd": "${workspaceFolder}/server",
             "command": "npm start",
             "name": "Backend Serve",
