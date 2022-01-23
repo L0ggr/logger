@@ -82,10 +82,9 @@ export async function AddUser(
 
     user.createdAt = new Date();
     user.updatedAt = new Date();
-    const findUser = new UserModel(user);
+    const createdUser = await UserModel.create(user);
 
-    await findUser.save();
-    return findUser;
+    return createdUser;
   } catch (err) {
     console.error(err);
   }
