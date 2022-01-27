@@ -3,6 +3,7 @@ import logo from "./logo.svg";
 import "./App.css";
 import { useQuery, gql } from "@apollo/client";
 import Button from "./components/Counter";
+import UiLayout from "./pages/UiLayout";
 
 const GETUSER = gql`
   query Query($userId: ID) {
@@ -26,11 +27,12 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
+      <UiLayout />
+      {/* <header className="App-header">
         <Button />
         <h2> Get user: </h2>
         {loading || !data ? <p>Loading...</p> : <p>{data.user.id}</p>}
-      </header>
+      </header> */}
     </div>
   );
 }
