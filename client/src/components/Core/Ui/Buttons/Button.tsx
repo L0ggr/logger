@@ -16,11 +16,14 @@ const Btn = styled("button", {
       primary: {
         backgroundColor: "$primary600",
         color: "$neutral0",
+        border: "2px solid $primary600",
         "&:hover": {
           backgroundColor: "$primary500",
+          border: "2px solid $primary500",
         },
         "&:active": {
           backgroundColor: "$primary700",
+          border: "2px solid $primary700",
         },
         "&:focus": {
           backgroundColor: "$primary600",
@@ -31,11 +34,14 @@ const Btn = styled("button", {
       success: {
         backgroundColor: "$success600",
         color: "$neutral0",
+        border: "2px solid $success600",
         "&:hover": {
           backgroundColor: "$success500",
+          border: "2px solid $success500",
         },
         "&:active": {
           backgroundColor: "$success700",
+          border: "2px solid $success700",
         },
         "&:focus": {
           backgroundColor: "$success600",
@@ -46,11 +52,14 @@ const Btn = styled("button", {
       danger: {
         backgroundColor: "$danger600",
         color: "$neutral0",
+        border: "2px solid $danger600",
         "&:hover": {
           backgroundColor: "$danger500",
+          border: "2px solid $danger500",
         },
         "&:active": {
           backgroundColor: "$danger700",
+          border: "2px solid $danger700",
         },
         "&:focus": {
           backgroundColor: "$danger600",
@@ -61,11 +70,14 @@ const Btn = styled("button", {
       warning: {
         backgroundColor: "$warning600",
         color: "$neutral0",
+        border: "2px solid $warning600",
         "&:hover": {
           backgroundColor: "$warning500",
+          border: "2px solid $warning500",
         },
         "&:active": {
           backgroundColor: "$warning700",
+          border: "2px solid $warning700",
         },
         "&:focus": {
           backgroundColor: "$warning600",
@@ -76,11 +88,14 @@ const Btn = styled("button", {
       secondary: {
         backgroundColor: "$secondary600",
         color: "$neutral0",
+        border: "2px solid $secondary600",
         "&:hover": {
           backgroundColor: "$secondary500",
+          border: "2px solid $secondary500",
         },
         "&:active": {
           backgroundColor: "$secondary700",
+          border: "2px solid $secondary700",
         },
         "&:focus": {
           backgroundColor: "$secondary600",
@@ -90,12 +105,15 @@ const Btn = styled("button", {
       },
       alternative: {
         backgroundColor: "$alternative600",
+        border: "2px solid $alternative600",
         color: "$neutral0",
         "&:hover": {
           backgroundColor: "$alternative500",
+          border: "2px solid $alternative500",
         },
         "&:active": {
           backgroundColor: "$alternative700",
+          border: "2px solid $alternative700",
         },
         "&:focus": {
           backgroundColor: "$alternative600",
@@ -105,6 +123,7 @@ const Btn = styled("button", {
       },
       disabled: {
         backgroundColor: "$neutral150",
+        border: "2px solid $neutral150",
         color: "$neutral600",
       },
     },
