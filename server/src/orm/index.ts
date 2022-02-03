@@ -14,33 +14,37 @@ export const DatabaseInit = async () => {
 
 // Mongoose models
 // TODO(Ecy): Add typing to the rest of the models
-const UserSchema = new Schema<User>({
-  name: { type: String, required: true },
-  email: { type: String, required: true },
-  password: { type: String, required: true },
-  userSettings: Object,
-  createdAt: Date,
-  updatedAt: Date,
-});
+const UserSchema = new Schema<User>(
+  {
+    name: { type: String, required: true },
+    email: { type: String, required: true },
+    password: { type: String, required: true },
+    userSettings: Object,
+  },
+  { timestamps: true }
+);
 export const UserModel = model<User>("User", UserSchema);
 
-const ProjectSchema = new Schema({
-  name: String,
-  createdAt: Date,
-  updatedAt: Date,
-});
+const ProjectSchema = new Schema(
+  {
+    name: String,
+  },
+  { timestamps: true }
+);
 export const ProjectModel = model("Project", ProjectSchema);
 
-const LogSchema = new Schema({
-  projectID: String, // Note(Ecy): Probably has a ObjectId type from mongoose
-  createdAt: Date,
-  updatedAt: Date,
-});
+const LogSchema = new Schema(
+  {
+    projectID: String, // Note(Ecy): Probably has a ObjectId type from mongoose
+  },
+  { timestamps: true }
+);
 export const LogModel = model("Log", LogSchema);
 
-const TicketSchema = new Schema({
-  projectID: String, // Note(Ecy): same as in Log
-  createdAt: Date,
-  updatedAt: Date,
-});
+const TicketSchema = new Schema(
+  {
+    projectID: String, // Note(Ecy): same as in Log
+  },
+  { timestamps: true }
+);
 export const TicketModel = model("Ticket", TicketSchema);

@@ -57,7 +57,7 @@ export async function UpdateUser(
     // TODO(Ecy): Encypt password
     // user.password = Hash(user.password);
 
-    user.updatedAt = new Date();
+    // user.updatedAt = new Date();
     const updateUser = await UserModel.findByIdAndUpdate(id, user);
 
     if (!updateUser) throw new Error();
@@ -80,8 +80,8 @@ export async function AddUser(
     // TODO(Ecy): Encypt password
     // user.password = Hash(user.password);
 
-    user.createdAt = new Date();
-    user.updatedAt = new Date();
+    // user.createdAt = new Date();
+    // user.updatedAt = new Date();
     const createdUser = await UserModel.create(user);
 
     return createdUser;
