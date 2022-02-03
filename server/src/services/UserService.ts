@@ -22,30 +22,6 @@ export async function GetUser(
   return null;
 }
 
-// export async function GetUsers(
-//   parent: any,
-//   args: any,
-//   context: any,
-//   info: any
-// ): Promise<UserAttributes[] | null> {
-//   try {
-//     const { ids } = args;
-
-//     if (ids?.length <= 0) throw new Error();
-
-//     const findUsers = await UserModel.findAll();
-
-//     const data = findUsers.map((user) => user.get());
-
-//     if (!data.length) throw new Error();
-
-//     return data;
-//   } catch (err) {
-//     console.error(err);
-//   }
-//   return null;
-// }
-
 export async function UpdateUser(
   parent: any,
   args: { id: string; user: User },

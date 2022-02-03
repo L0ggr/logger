@@ -6,6 +6,8 @@ import {
   UpdateUser,
   GetProject,
   AddProject,
+  UpdateProject,
+  DeleteProject,
 } from "services";
 
 export const typeDefs = gql`
@@ -46,6 +48,8 @@ export const typeDefs = gql`
     updateUser(id: ID!, user: UserMutation!): User
     deleteUser(id: ID!): User
     addProject(project: ProjectMutation!): Project
+    updateProject(id: ID!, project: ProjectMutation!): Project
+    deleteProject(id: ID!): Project
   }
 `;
 
@@ -60,5 +64,7 @@ export const resolvers = {
     updateUser: UpdateUser,
     deleteUser: DeleteUser,
     addProject: AddProject,
+    updateProject: UpdateProject,
+    deleteProject: DeleteProject,
   },
 };

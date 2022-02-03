@@ -1,2 +1,7 @@
 export * from "./UserService";
-export { GetProject, AddProject } from "./ProjectService";
+export {
+  GetProject,
+  AddProject,
+  UpdateProject,
+  DeleteProject,
+} from "./ProjectService";
