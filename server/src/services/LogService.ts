@@ -1,7 +1,7 @@
 import { Log } from "@types";
 import { LogModel } from "@orm";
 
-export async function GetTicket(
+export async function GetLog(
   parent: any,
   args: { id: string },
   context: any,

@@ -8,7 +8,10 @@ NOTE: the .env should be in the `server` folder
 |-|-|
 | DB_MONGO_URL | Ex: mongodb://localhost:27017/ |
 | DB_MONGO_DATABASE | Ex: test |
-
+| ENCRYPT_SALT_LEVEL | 10 |
+| ENCRYPT_SECRET | secret |
+| ENCRYPT_TOKEN_SECRET | secret |
+| ENCRYPT_TOKEN_EXPIRES_IN | 30 |
 
 ## Development environment
 

@@ -8,6 +8,7 @@ import {
   AddProject,
   UpdateProject,
   DeleteProject,
+  Login,
 } from "services";
 
 export const typeDefs = gql`
@@ -38,11 +39,17 @@ export const typeDefs = gql`
     updatedAt: String
   }
 
+  type Auth {
+    email: String
+    token: String
+  }
+
   type Query {
     user(id: ID): User
     users(ids: [ID]): [User]
     project(id: ID): Project
     projects(ids: [ID]): [Project]
+    login(email: String!, password: String!): Auth
   }
 
   type Mutation {
@@ -60,6 +67,7 @@ export const resolvers = {
     user: GetUser,
     project: GetProject,
     // users: GetUsers,
+    login: Login,
   },
   Mutation: {
     addUser: AddUser,

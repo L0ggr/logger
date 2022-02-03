@@ -1,5 +1,6 @@
 import { User } from "@types";
 import { UserModel } from "@orm";
+import { CheckAuthorization, Hash } from "utils";
 
 export async function GetUser(
   parent: any,
@@ -8,6 +9,8 @@ export async function GetUser(
   info: any
 ): Promise<User | null> {
   try {
+    CheckAuthorization(context.auth);
+
     const { id } = args;
 
     if (!id) throw new Error();
@@ -29,6 +32,8 @@ export async function UpdateUser(
   info: any
 ): Promise<User | null> {
   try {
+    CheckAuthorization(context.auth);
+
     const { id, user } = args;
     // TODO(Ecy): Encypt password
     // user.password = Hash(user.password);
@@ -52,9 +57,11 @@ export async function AddUser(
   info: any
 ): Promise<User | null> {
   try {
+    CheckAuthorization(context.auth);
+
     const { user } = args;
     // TODO(Ecy): Encypt password
-    // user.password = Hash(user.password);
+    user.password = Hash(user.password);
 
     // user.createdAt = new Date();
     // user.updatedAt = new Date();
@@ -75,6 +82,8 @@ export async function DeleteUser(
   info: any
 ): Promise<{ id: string } | null> {
   try {
+    CheckAuthorization(context.auth);
+
     const { id } = args;
     const result = await UserModel.findByIdAndDelete(id);
 

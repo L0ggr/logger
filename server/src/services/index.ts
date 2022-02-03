@@ -1,7 +1,5 @@
 export * from "./UserService";
-export {
-  GetProject,
-  AddProject,
-  UpdateProject,
-  DeleteProject,
-} from "./ProjectService";
+export * from "./ProjectService";
+export * from "./AuthService";
+export * from "./LogService";
+export * from "./TicketService";

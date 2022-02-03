@@ -60,7 +60,7 @@ export async function AddTicket(
   return null;
 }
 
-export async function DeleteProject(
+export async function DeleteTicket(
   parent: any,
   args: { id: string },
   context: any,
