@@ -1,5 +1,6 @@
 import { gql } from "apollo-server";
 import { GetUser, AddUser, DeleteUser, UpdateUser } from "services";
+import { GetProject } from "services/ProjectService";
 
 export const typeDefs = gql`
   type User {
@@ -26,12 +27,24 @@ export const typeDefs = gql`
     updateUser(id: ID!, user: UserMutation!): User
     deleteUser(id: ID!): User
   }
+
+  type Project {
+    if: ID
+    name : String
+    createdAt: String
+    updatedAt: String
+  }
+
 `;
 
 export const resolvers = {
   Query: {
     user: GetUser,
     // users: GetUsers,
+
+    
+    // this does not work
+    // project: GetProject,
   },
   Mutation: {
     addUser: AddUser,

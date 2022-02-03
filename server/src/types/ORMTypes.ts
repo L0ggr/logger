@@ -12,3 +12,9 @@ export interface User {
 export interface UserSettings {
   exampleNotification: boolean;
 }
+
+export interface Project {
+  name: string;
+  createdAt: Date;
+  updatedAt: Date;
+}
