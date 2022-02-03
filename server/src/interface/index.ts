@@ -27,11 +27,13 @@ export const typeDefs = gql`
 
   input ProjectMutation {
     name: String!
+    userID: String!
   }
 
   type Project {
     id: ID
     name: String
+    userID: String!
     createdAt: String
     updatedAt: String
   }

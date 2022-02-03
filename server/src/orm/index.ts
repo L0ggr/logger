@@ -1,4 +1,4 @@
-import { connect, Schema, model } from "mongoose";
+import { connect, Schema, model, Mongoose } from "mongoose";
 import { User, UserSettings } from "@types";
 
 export const DatabaseInit = async () => {
@@ -28,6 +28,7 @@ export const UserModel = model<User>("User", UserSchema);
 const ProjectSchema = new Schema(
   {
     name: String,
+    userID: UserSchema,
   },
   { timestamps: true }
 );
@@ -35,7 +36,8 @@ export const ProjectModel = model("Project", ProjectSchema);
 
 const LogSchema = new Schema(
   {
-    projectID: String, // Note(Ecy): Probably has a ObjectId type from mongoose
+    projectID: String, // Note(Ecy): Probably has a ObjectId type from mongoose,
+    name: String,
   },
   { timestamps: true }
 );
@@ -44,6 +46,7 @@ export const LogModel = model("Log", LogSchema);
 const TicketSchema = new Schema(
   {
     projectID: String, // Note(Ecy): same as in Log
+    name: String,
   },
   { timestamps: true }
 );
