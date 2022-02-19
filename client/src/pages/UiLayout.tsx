@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "../components/Core/Ui";
+import { Button, Checkbox } from "../components/Core/Ui";
 
 export default function UiLayout() {
   return (
@@ -14,6 +14,8 @@ export default function UiLayout() {
       <Button color="disabled" disabled>
         Disabled
       </Button>
+      <p>Checkboxes</p>
+      <Checkbox value="Checkbox 1" />
     </div>
   );
 }
